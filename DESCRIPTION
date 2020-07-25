@@ -1,0 +1,24 @@
+Package: diffviewer
+Title: HTML Widget That Shows Differences Between Files
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Hadley",
+             family = "Wickham",
+             role = c("aut", "cre"),
+             email = "hadley@rstudio.com"),
+      person(given = "Winston",
+             family = "Chang",
+             role = "aut",
+             email = "winston@rstudio.com"),
+      person(given = "RStudio",
+             role = "cph"))
+Description: A HTML widget that shows differences between files (text and 
+    image).
+License: MIT + file LICENSE
+Imports: 
+    htmlwidgets,
+    jsonlite
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
