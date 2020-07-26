@@ -11,13 +11,25 @@ diffviewer_widget(old, new, width = NULL, height = NULL, pattern = NULL)
 Alternatively, they can be a character vectors of specific files to
 compare.}
 
-\item{width}{Width of the htmlwidget.}
-
-\item{height}{Height of the htmlwidget}
+\item{width, height}{Width and height of widget.}
 
 \item{pattern}{A filter to apply to the old and new directories.}
 }
 \description{
 This function can be used for viewing differences between current test
 results and the expected results
+}
+\examples{
+path1 <- tempfile()
+path2 <- tempfile()
+
+png(path1)
+plot(1:10)
+dev.off()
+
+png(path2)
+plot(1:10, xlab = "x")
+dev.off()
+
+diffviewer_widget(path1, path2)
 }

@@ -7,10 +7,22 @@
 #'   Alternatively, they can be a character vectors of specific files to
 #'   compare.
 #' @param pattern A filter to apply to the old and new directories.
-#' @param width Width of the htmlwidget.
-#' @param height Height of the htmlwidget
+#' @param width,height Width and height of widget.
 #'
 #' @export
+#' @examples
+#' path1 <- tempfile()
+#' path2 <- tempfile()
+#'
+#' png(path1)
+#' plot(1:10)
+#' dev.off()
+#'
+#' png(path2)
+#' plot(1:10, xlab = "x")
+#' dev.off()
+#'
+#' diffviewer_widget(path1, path2)
 diffviewer_widget <- function(old, new, width = NULL, height = NULL,
   pattern = NULL)
 {
@@ -25,12 +37,12 @@ diffviewer_widget <- function(old, new, width = NULL, height = NULL,
       dir(old, recursive = TRUE, pattern = pattern),
       dir(new, recursive = TRUE, pattern = pattern)
     )))
-  }
 
-  # TODO: Make sure old and new are the same length. Needed if someone passes
-  # in files directly.
-  #
-  # Also, make it work with file lists in general.
+    old <- file.path(old, filename)
+    new <- file.path(new, filename)
+  } else {
+    stopifnot(length(old) == length(new))
+  }
 
   get_file_contents <- function(filename) {
     if (!file.exists(filename)) {
@@ -49,15 +61,15 @@ diffviewer_widget <- function(old, new, width = NULL, height = NULL,
     }
   }
 
-  get_both_file_contents <- function(filename) {
+  get_both_file_contents <- function(old, new) {
     list(
-      filename = filename,
-      old = get_file_contents(file.path(old, filename)),
-      new = get_file_contents(file.path(new, filename))
+      filename = basename(old),
+      old = get_file_contents(old),
+      new = get_file_contents(new)
     )
   }
 
-  diff_data <- lapply(all_filenames, get_both_file_contents)
+  diff_data <- Map(get_both_file_contents, old, new)
 
   htmlwidgets::createWidget(
     name = "diffviewer",
