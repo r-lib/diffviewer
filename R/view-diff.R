@@ -11,8 +11,8 @@
 #'
 #' @export
 #' @examples
-#' path1 <- tempfile()
-#' path2 <- tempfile()
+#' path1 <- tempfile(fileext = ".png")
+#' path2 <- tempfile(fileext = ".png")
 #'
 #' png(path1)
 #' plot(1:10)
@@ -44,23 +44,6 @@ diffviewer_widget <- function(old, new, width = NULL, height = NULL,
     stopifnot(length(old) == length(new))
   }
 
-  get_file_contents <- function(filename) {
-    if (!file.exists(filename)) {
-      return(NULL)
-    }
-
-    bin_data <- read_raw(filename)
-
-    # Assume .json and .download files are text
-    if (grepl("\\.json$", filename) || grepl("\\.download$", filename)) {
-      raw_to_utf8(bin_data)
-    } else if (grepl("\\.png$", filename)) {
-      paste0("data:image/png;base64,", jsonlite::base64_enc(bin_data))
-    } else {
-      ""
-    }
-  }
-
   get_both_file_contents <- function(old, new) {
     list(
       filename = basename(old),
@@ -68,20 +51,35 @@ diffviewer_widget <- function(old, new, width = NULL, height = NULL,
       new = get_file_contents(new)
     )
   }
-
   diff_data <- Map(get_both_file_contents, old, new)
 
   htmlwidgets::createWidget(
     name = "diffviewer",
-    list(
-      diff_data = diff_data
-    ),
+    list(diff_data = diff_data),
     sizingPolicy = htmlwidgets::sizingPolicy(
       defaultWidth = "100%",
       defaultHeight = "100%",
       browser.padding = 10,
       viewer.fill = FALSE
     ),
-    package = "shinytest"
+    width = width,
+    height = height,
+    package = "diffviewer"
+  )
+}
+
+get_file_contents <- function(path) {
+  if (!file.exists(path)) {
+    return(NULL)
+  }
+
+  bin_data <- read_raw(path)
+  ext <- tools::file_ext(path)
+
+  switch(ext,
+    download = ,
+    json = raw_to_utf8(bin_data),
+    png = paste0("data:image/png;base64,", jsonlite::base64_enc(bin_data)),
+    ""
   )
 }

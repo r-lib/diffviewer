@@ -20,8 +20,8 @@ This function can be used for viewing differences between current test
 results and the expected results
 }
 \examples{
-path1 <- tempfile()
-path2 <- tempfile()
+path1 <- tempfile(fileext = ".png")
+path2 <- tempfile(fileext = ".png")
 
 png(path1)
 plot(1:10)
