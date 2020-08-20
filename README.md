@@ -5,6 +5,11 @@ diffviewer
 ==========
 
 <!-- badges: start -->
+
+[![Codecov test
+coverage](https://codecov.io/gh/r-lib/diffviewer/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/diffviewer?branch=master)
+[![R build
+status](https://github.com/r-lib/diffviewer/workflows/R-CMD-check/badge.svg)](https://github.com/r-lib/diffviewer/actions)
 <!-- badges: end -->
 
 diffviewer provides an HTML widget for visually comparing files. It
