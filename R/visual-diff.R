@@ -1,55 +1,38 @@
-#' <Add Title>
+#' HTML widget to visually compare two files
 #'
-#' <Add Description>
+#' Currently supports:
+#' * image diffs for `.svg` and `.png`
+#' * tabular diffs for `.csv`
+#' * text diffs for everything else
 #'
-#' @import htmlwidgets
-#'
+#' @param file_old,file_new Paths to files to compare
+#' @param width,height Output size
+#' @seealso [visual_diff_output()] for use within Shiny apps
 #' @export
-visual_diff <- function(file_old, file_new, ..., width = NULL, height = NULL, elementId = NULL) {
+visual_diff <- function(file_old, file_new, width = NULL, height = NULL) {
+  stopifnot(file.exists(file_old), file.exists(file_new))
+  stopifnot(tolower(tools::file_ext(file_old)) == tolower(tools::file_ext(file_new)))
 
-  stopifnot(
-    file.exists(file_old),
-    file.exists(file_new),
-    tolower(tools::file_ext(file_old)) %in% EXT_SUPP,
-    tolower(tools::file_ext(file_old)) == tolower(tools::file_ext(file_new))
-  )
-
-  ext_file <- tolower(tools::file_ext(file_old))
-  typediff <- NULL
-
-  if(ext_file %in% EXT_DIFF) {
-    typediff <- "text"
-  } else if(ext_file %in% EXT_IMGS) {
-    typediff <- "image"
-  } else if(ext_file %in% EXT_DAFF) {
-    typediff <- "data"
-  }
-
-  stopifnot(!is.null(typediff))
-
-  # forward options using x
-  x = list(
+  widget_data <- list(
     old = file_data(file_old),
     new = file_data(file_new),
     filename = basename(file_old),
-    typediff = typediff
+    typediff = file_type(file_old)
   )
 
-  # create widget
   htmlwidgets::createWidget(
-    name = 'visual_diff',
-    x,
+    name = "visual_diff",
+    widget_data,
     width = width,
     height = height,
-    package = 'diffviewer',
-    elementId = elementId
+    package = "diffviewer"
   )
 }
 
-#' Shiny bindings for visual_diff
+#' Shiny bindings for `visual_diff()`
 #'
-#' Output and render functions for using visual_diff within Shiny
-#' applications and interactive Rmd documents.
+#' Use `visual_diff_output()` in ui and `render_visual_diff(visual_diff(...))`
+#' in the server function.
 #'
 #' @param outputId output variable to read from
 #' @param width,height Must be a valid CSS unit (like \code{'100\%'},
@@ -61,15 +44,23 @@ visual_diff <- function(file_old, file_new, ..., width = NULL, height = NULL, el
 #'   is useful if you want to save an expression in a variable.
 #'
 #' @name visual_diff-shiny
-#'
 #' @export
-visual_diffOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'visual_diff', width, height, package = 'diffviewer')
+#' @examples
+visual_diff_output <- function(outputId, width = "100%", height = "400px") {
+  htmlwidgets::shinyWidgetOutput(
+    outputId,
+    "visual_diff",
+    width = width,
+    height = height,
+    package = "diffviewer"
+  )
 }
 
 #' @rdname visual_diff-shiny
 #' @export
-renderVisual_diff <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, visual_diffOutput, env, quoted = TRUE)
+render_visual_diff <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) {
+    expr <- substitute(expr)
+  }
+  htmlwidgets::shinyRenderWidget(expr, visual_diff_output, env, quoted = TRUE)
 }

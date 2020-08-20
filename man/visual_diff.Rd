@@ -2,17 +2,23 @@
 % Please edit documentation in R/visual-diff.R
 \name{visual_diff}
 \alias{visual_diff}
-\title{<Add Title>}
+\title{HTML widget to visually compare two files}
 \usage{
-visual_diff(
-  file_old,
-  file_new,
-  ...,
-  width = NULL,
-  height = NULL,
-  elementId = NULL
-)
+visual_diff(file_old, file_new, width = NULL, height = NULL)
+}
+\arguments{
+\item{file_old, file_new}{Paths to files to compare}
+
+\item{width, height}{Output size}
 }
 \description{
-<Add Description>
+Currently supports:
+\itemize{
+\item image diffs for \code{.svg} and \code{.png}
+\item tabular diffs for \code{.csv}
+\item text diffs for everything else
+}
+}
+\seealso{
+\code{\link[=visual_diff_output]{visual_diff_output()}} for use within Shiny apps
 }

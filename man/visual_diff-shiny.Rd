@@ -2,13 +2,13 @@
 % Please edit documentation in R/visual-diff.R
 \name{visual_diff-shiny}
 \alias{visual_diff-shiny}
-\alias{visual_diffOutput}
-\alias{renderVisual_diff}
-\title{Shiny bindings for visual_diff}
+\alias{visual_diff_output}
+\alias{render_visual_diff}
+\title{Shiny bindings for \code{visual_diff()}}
 \usage{
-visual_diffOutput(outputId, width = "100\%", height = "400px")
+visual_diff_output(outputId, width = "100\%", height = "400px")
 
-renderVisual_diff(expr, env = parent.frame(), quoted = FALSE)
+render_visual_diff(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
 \item{outputId}{output variable to read from}
@@ -25,6 +25,6 @@ string and have \code{'px'} appended.}
 is useful if you want to save an expression in a variable.}
 }
 \description{
-Output and render functions for using visual_diff within Shiny
-applications and interactive Rmd documents.
+Use \code{visual_diff_output()} in ui and \code{render_visual_diff(visual_diff(...))}
+in the server function.
 }
