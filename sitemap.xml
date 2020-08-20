@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://diffviewer.r-lib.org/index.html</loc>
+  </url>
+  <url>
+    <loc>https://diffviewer.r-lib.org/reference/visual_diff.html</loc>
+  </url>
+  <url>
+    <loc>https://diffviewer.r-lib.org/reference/visual_diff_output.html</loc>
+  </url>
+</urlset>
