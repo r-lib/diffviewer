@@ -142,6 +142,36 @@ diffviewer = (function() {
         .find(".d2h-tag")
         .text("NOT CHANGED");
 
+     // here we put the original file
+      var tbl = $("#" + $el.id)
+        .find(".d2h-diff-tbody");
+
+      tbl.empty();
+
+      var lines = old_txt.split("\n");
+
+      lines.forEach(function(value, index){
+
+        // console.log(value);
+        // console.log(index);
+
+        var mrkup =  '<tr>' +
+        '<td class="d2h-code-linenumber d2h-cntx">' +
+          '<div class="line-num1">' + (index + 1) + '</div>' +
+         // '<div class="line-num2">22</div>' +
+        '</td>' +
+        '<td class="d2h-cntx">' +
+          '<div class="d2h-code-line d2h-cntx">' +
+            '<span class="d2h-code-line-prefix"> </span>' +
+            '<span class="d2h-code-line-ctn">' + value + '</span>' +
+          '</div>' +
+          '</td>' +
+       '</tr>';
+
+        tbl.append(mrkup);
+
+      });
+
     }
 
     if(state.status === "modified") {
