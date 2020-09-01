@@ -1,0 +1,10 @@
+The diffviewer package as a whole is distributed under MIT. The diffviewer package includes other open source software components. The following is a list of these components:
+
+* daff: MIT
+* diff2html: MIT
+* diffviewer: written by package authors
+* jquery: MIT
+* jsdiff: BSD
+* resemble: MIT
+
+Full copies of the license agreements used by these components are included in `inst/htmlwidgets/lib`.

@@ -14,7 +14,25 @@ Authors@R:
              role = "aut",
              email = "winston@rstudio.com"),
       person(given = "RStudio",
-             role = "cph"))
+             role = "cph"),
+      person(given = "Paul",
+             family = "Fitzpatrick",
+             role = "cph",
+             comment = "Author of included daff.js library"),
+      person(given = "Rodrigo",
+             family = "Fernandes",
+             role = "cph",
+             comment = "Author of included diff2html library"),
+      person(given = "JQuery Foundation",
+             role = "cph",
+             comment = "Author of included jquery library"),
+      person(given = "Kevin",
+             family = "Decker",
+             role = "cph",
+             comment = "Author of included jsdiff library"),
+      person(given = "Huddle",
+             role = "cph",
+             comment = "Author of included resemble library"))
 Description: A HTML widget that shows differences between files
     (text, images, and data frames).
 License: MIT + file LICENSE
@@ -23,10 +41,10 @@ BugReports: https://github.com/r-lib/diffviewer/issues
 Imports: 
     htmlwidgets,
     jsonlite
+Suggests: 
+    covr,
+    shiny
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-Suggests: 
-    covr,
-    shiny
