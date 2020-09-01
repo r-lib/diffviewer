@@ -23,7 +23,28 @@ string and have \code{'px'} appended.}
 \item{quoted}{Is \code{expr} a quoted expression (with \code{quote()})? This
 is useful if you want to save an expression in a variable.}
 }
+\value{
+Components for use inside a Shiny app.
+}
 \description{
 Use \code{visual_diff_output()} in ui and \code{render_visual_diff(visual_diff(...))}
 in the server function.
+}
+\examples{
+if (require("shiny") && interactive()) {
+ui <- fluidPage(
+  visual_diff_output("diff")
+)
+
+server <- function(input, output, session) {
+  path1 <- tempfile()
+  path2 <- tempfile()
+  writeLines(letters, path1)
+  writeLines(letters[-13], path2)
+
+  output$diff <- visual_diff_render(visual_diff(path1, path2))
+}
+
+shinyApp(ui, server)
+}
 }

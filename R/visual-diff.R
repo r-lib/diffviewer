@@ -8,7 +8,17 @@
 #' @param file_old,file_new Paths to files to compare
 #' @param width,height Output size
 #' @seealso [visual_diff_output()] for use within Shiny apps
+#' @returns A HTML widget
 #' @export
+#' @examples
+#' path1 <- tempfile()
+#' path2 <- tempfile()
+#' writeLines(letters, path1)
+#' writeLines(letters[-13], path2)
+#'
+#' if (interactive()) {
+#'   visual_diff(path1, path2)
+#' }
 visual_diff <- function(file_old, file_new, width = NULL, height = NULL) {
   stopifnot(file.exists(file_old), file.exists(file_new))
   stopifnot(tolower(tools::file_ext(file_old)) == tolower(tools::file_ext(file_new)))
@@ -43,6 +53,24 @@ visual_diff <- function(file_old, file_new, width = NULL, height = NULL) {
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
 #' @export
+#' @return Components for use inside a Shiny app.
+#' @examples
+#' if (require("shiny") && interactive()) {
+#' ui <- fluidPage(
+#'   visual_diff_output("diff")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'   path1 <- tempfile()
+#'   path2 <- tempfile()
+#'   writeLines(letters, path1)
+#'   writeLines(letters[-13], path2)
+#'
+#'   output$diff <- visual_diff_render(visual_diff(path1, path2))
+#' }
+#'
+#' shinyApp(ui, server)
+#' }
 visual_diff_output <- function(outputId, width = "100%", height = "400px") {
   htmlwidgets::shinyWidgetOutput(
     outputId,

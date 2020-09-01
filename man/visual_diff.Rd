@@ -11,12 +11,25 @@ visual_diff(file_old, file_new, width = NULL, height = NULL)
 
 \item{width, height}{Output size}
 }
+\value{
+A HTML widget
+}
 \description{
 Currently supports:
 \itemize{
 \item image diffs for \code{.svg} and \code{.png}
 \item tabular diffs for \code{.csv}
 \item text diffs for everything else
+}
+}
+\examples{
+path1 <- tempfile()
+path2 <- tempfile()
+writeLines(letters, path1)
+writeLines(letters[-13], path2)
+
+if (interactive()) {
+  visual_diff(path1, path2)
 }
 }
 \seealso{
