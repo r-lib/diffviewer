@@ -7,7 +7,7 @@
   curly:false,
   indent:2
 */
-/*global diffviewer:true, HTMLWidgets, JsDiff, Diff2HtmlUI, resemble, daff, csv2array, escape */
+/*global diffviewer:true, HTMLWidgets, JsDiff, Diff2HtmlUI, resemble, daff, Papa, escape */
 
 diffviewer = (function() {
   var diffviewer = {};
@@ -141,6 +141,36 @@ diffviewer = (function() {
       $("#" + $el.id)
         .find(".d2h-tag")
         .text("NOT CHANGED");
+
+     // here we put the original file
+      var tbl = $("#" + $el.id)
+        .find(".d2h-diff-tbody");
+
+      tbl.empty();
+
+      var lines = old_txt.split("\n");
+
+      lines.forEach(function(value, index){
+
+        // console.log(value);
+        // console.log(index);
+
+        var mrkup =  '<tr>' +
+        '<td class="d2h-code-linenumber d2h-cntx">' +
+          '<div class="line-num1">' + (index + 1) + '</div>' +
+         // '<div class="line-num2">22</div>' +
+        '</td>' +
+        '<td class="d2h-cntx">' +
+          '<div class="d2h-code-line d2h-cntx">' +
+            '<span class="d2h-code-line-prefix"> </span>' +
+            '<span class="d2h-code-line-ctn">' + value + '</span>' +
+          '</div>' +
+          '</td>' +
+       '</tr>';
+
+        tbl.append(mrkup);
+
+      });
 
     }
 
@@ -337,8 +367,8 @@ diffviewer = (function() {
     old_csv = old_csv.replace("data:text/csv;base64,", "");
     new_csv = new_csv.replace("data:text/csv;base64,", "");
 
-    var old_arr = csv2array(b64_to_utf8(old_csv));
-    var new_arr = csv2array(b64_to_utf8(new_csv));
+    var old_arr = Papa.parse(b64_to_utf8(old_csv), {skipEmptyLines : true}).data;
+    var new_arr = Papa.parse(b64_to_utf8(new_csv), {skipEmptyLines : true}).data;
 
     // from https://github.com/paulfitz/daff#the-library
 
