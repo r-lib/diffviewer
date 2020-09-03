@@ -30,6 +30,10 @@ Authors@R:
              family = "Decker",
              role = "cph",
              comment = "Author of included jsdiff library"),
+      person(given = "Matthew",
+             family = "Holt",
+             role = "cph",
+             comment = "Author of incldued PapaParse library"),
       person(given = "Huddle",
              role = "cph",
              comment = "Author of included resemble library"))

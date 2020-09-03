@@ -5,6 +5,7 @@ The diffviewer package as a whole is distributed under MIT. The diffviewer packa
 * diffviewer: written by package authors
 * jquery: MIT
 * jsdiff: BSD
+* PapaParse: MIT
 * resemble: MIT
 
 Full copies of the license agreements used by these components are included in `inst/htmlwidgets/lib`.
