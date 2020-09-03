@@ -7,7 +7,7 @@
   curly:false,
   indent:2
 */
-/*global diffviewer:true, HTMLWidgets, JsDiff, Diff2HtmlUI, resemble, daff, csv2array, escape */
+/*global diffviewer:true, HTMLWidgets, JsDiff, Diff2HtmlUI, resemble, daff, Papa, escape */
 
 diffviewer = (function() {
   var diffviewer = {};
@@ -367,8 +367,8 @@ diffviewer = (function() {
     old_csv = old_csv.replace("data:text/csv;base64,", "");
     new_csv = new_csv.replace("data:text/csv;base64,", "");
 
-    var old_arr = csv2array(b64_to_utf8(old_csv));
-    var new_arr = csv2array(b64_to_utf8(new_csv));
+    var old_arr = Papa.parse(b64_to_utf8(old_csv), {skipEmptyLines : true}).data;
+    var new_arr = Papa.parse(b64_to_utf8(new_csv), {skipEmptyLines : true}).data;
 
     // from https://github.com/paulfitz/daff#the-library
 
