@@ -1,8 +1,8 @@
 pandoc: 2.7.3
-pkgdown: 1.5.1
+pkgdown: 1.6.0
 pkgdown_sha: ~
 articles: []
-last_built: 2020-09-03T13:21Z
+last_built: 2020-09-10T22:31Z
 urls:
   reference: https://diffviewer.r-lib.org/reference
   article: https://diffviewer.r-lib.org/articles
