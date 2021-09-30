@@ -14,11 +14,11 @@ status](https://github.com/r-lib/diffviewer/workflows/R-CMD-check/badge.svg)](ht
 diffviewer provides an HTML widget for visually comparing files. It
 currently wraps three javascript libraries:
 
-  - [resemble.js](https://rsmbl.github.io/Resemble.js/) for comparing
+-   [resemble.js](https://rsmbl.github.io/Resemble.js/) for comparing
     images.
-  - [daff.js](https://paulfitz.github.io/daff/) for comparing data
+-   [daff.js](https://paulfitz.github.io/daff/) for comparing data
     frames.
-  - [jsdiff](https://github.com/kpdecker/jsdiff) for everything else.
+-   [jsdiff](https://github.com/kpdecker/jsdiff) for everything else.
 
 It extracts out common UI provided by
 [shinytest](https://rstudio.github.io/shinytest/index.html) and
