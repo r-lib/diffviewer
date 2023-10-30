@@ -2,10 +2,10 @@ Package: diffviewer
 Title: HTML Widget to Show File Differences
 Version: 0.1.1.9000
 Authors@R: c(
-    person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("aut", "cre")),
+    person("Hadley", "Wickham", , "hadley@posit.co", role = c("aut", "cre")),
     person("Joshua", "Kunst", role = "aut"),
-    person("Winston", "Chang", , "winston@rstudio.com", role = "aut"),
-    person("RStudio", role = c("cph", "fnd")),
+    person("Winston", "Chang", , "winston@posit.co", role = "aut"),
+    person("Posit Software, PBC", role = c("cph", "fnd")),
     person("Paul", "Fitzpatrick", role = "cph",
            comment = "Author of included daff.js library"),
     person("Rodrigo", "Fernandes", role = "cph",

@@ -18,17 +18,17 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Hadley Wickham \email{hadley@rstudio.com}
+\strong{Maintainer}: Hadley Wickham \email{hadley@posit.co}
 
 Authors:
 \itemize{
   \item Joshua Kunst
-  \item Winston Chang \email{winston@rstudio.com}
+  \item Winston Chang \email{winston@posit.co}
 }
 
 Other contributors:
 \itemize{
-  \item RStudio [copyright holder, funder]
+  \item Posit Software, PBC [copyright holder, funder]
   \item Paul Fitzpatrick (Author of included daff.js library) [copyright holder]
   \item Rodrigo Fernandes (Author of included diff2html library) [copyright holder]
   \item JQuery Foundation (Author of included jquery library) [copyright holder]
