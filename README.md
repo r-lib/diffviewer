@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Codecov test
-coverage](https://codecov.io/gh/r-lib/diffviewer/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/diffviewer?branch=master)
+coverage](https://codecov.io/gh/r-lib/diffviewer/branch/main/graph/badge.svg)](https://codecov.io/gh/r-lib/diffviewer?branch=main)
 [![R-CMD-check](https://github.com/r-lib/diffviewer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/diffviewer/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
