@@ -3,3 +3,14 @@ url: https://diffviewer.r-lib.org
 authors:
   Joshua Kunst:
     href: https://jkunst.com
+
+template:
+  package: tidytemplate
+  bootstrap: 5
+
+  includes:
+    in_header: |
+      <script defer data-domain="diffviewer.r-lib.org,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
+
+development:
+  mode: auto
