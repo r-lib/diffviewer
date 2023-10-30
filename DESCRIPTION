@@ -24,6 +24,8 @@ Description: A HTML widget that shows differences between files (text,
 License: MIT + file LICENSE
 URL: https://diffviewer.r-lib.org, https://github.com/r-lib/diffviewer
 BugReports: https://github.com/r-lib/diffviewer/issues
+Depends: 
+    R (>= 3.6.0)
 Imports: 
     htmlwidgets,
     jsonlite
