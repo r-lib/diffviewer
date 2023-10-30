@@ -1,44 +1,26 @@
 Package: diffviewer
 Title: HTML Widget to Show File Differences
 Version: 0.1.1.9000
-Authors@R: 
-    c(person(given = "Hadley",
-             family = "Wickham",
-             role = c("aut", "cre"),
-             email = "hadley@rstudio.com"),
-      person(given = "Joshua",
-             family = "Kunst",
-             role = "aut"),
-      person(given = "Winston",
-             family = "Chang",
-             role = "aut",
-             email = "winston@rstudio.com"),
-      person(given = "RStudio",
-             role = c("cph", "fnd")),
-      person(given = "Paul",
-             family = "Fitzpatrick",
-             role = "cph",
-             comment = "Author of included daff.js library"),
-      person(given = "Rodrigo",
-             family = "Fernandes",
-             role = "cph",
-             comment = "Author of included diff2html library"),
-      person(given = "JQuery Foundation",
-             role = "cph",
-             comment = "Author of included jquery library"),
-      person(given = "Kevin",
-             family = "Decker",
-             role = "cph",
-             comment = "Author of included jsdiff library"),
-      person(given = "Matthew",
-             family = "Holt",
-             role = "cph",
-             comment = "Author of incldued PapaParse library"),
-      person(given = "Huddle",
-             role = "cph",
-             comment = "Author of included resemble library"))
-Description: A HTML widget that shows differences between files
-    (text, images, and data frames).
+Authors@R: c(
+    person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("aut", "cre")),
+    person("Joshua", "Kunst", role = "aut"),
+    person("Winston", "Chang", , "winston@rstudio.com", role = "aut"),
+    person("RStudio", role = c("cph", "fnd")),
+    person("Paul", "Fitzpatrick", role = "cph",
+           comment = "Author of included daff.js library"),
+    person("Rodrigo", "Fernandes", role = "cph",
+           comment = "Author of included diff2html library"),
+    person("JQuery Foundation", role = "cph",
+           comment = "Author of included jquery library"),
+    person("Kevin", "Decker", role = "cph",
+           comment = "Author of included jsdiff library"),
+    person("Matthew", "Holt", role = "cph",
+           comment = "Author of incldued PapaParse library"),
+    person("Huddle", role = "cph",
+           comment = "Author of included resemble library")
+  )
+Description: A HTML widget that shows differences between files (text,
+    images, and data frames).
 License: MIT + file LICENSE
 URL: https://diffviewer.r-lib.org, https://github.com/r-lib/diffviewer
 BugReports: https://github.com/r-lib/diffviewer/issues
